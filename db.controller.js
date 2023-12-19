@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
+const mongoose=require('mongoose');
 
-
- export const dbConnection = async(URI) => {
+  const dbConnection = async(URI) => {
   
   try {
     await mongoose.connect(URI, {
@@ -14,3 +14,5 @@ import mongoose from "mongoose";
     console.log("error connecting db");
   }
 };
+
+module.exports={dbConnection};

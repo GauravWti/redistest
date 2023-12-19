@@ -1,36 +1,57 @@
-import mongoose from "mongoose";
 
-const blogs = new mongoose.Schema(
+const mongoose = require('mongoose');
+
+
+const blogsSchema = new mongoose.Schema(
   {
     categories: {
       type: String,
       required: true,
       trim: true,
     },
-title : {
-      type: String,
-      required: true, 
-      trim: true,
-  },
-  paragraph : {
+    title: {
       type: String,
       required: true,
-     
       trim: true,
-  },
-    slugs:{
-      type : String,
-      required : true,
-      trim:true,
     },
-    image:{
+    paragraph: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    slugs: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    image: {
+      type: String,
+      required: true,
+    },
+    canonicalurl:{
       type:String,
-      required:true,
       
+    },
+    metadesc:{
+      type:String,
+
+    },
+    metakeyword:{
+      type:String,
+    },
+    readingtime:{
+      type:String,
+    },
+    tags:{
+      type:String,
     }
-    
+
   },
   { timestamps: true },
 );
 
-export const Blogs = mongoose.model("Blogs", blogs);
+
+const Blogs = mongoose.model('Blogs', blogsSchema);
+
+
+module.exports = {Blogs};
